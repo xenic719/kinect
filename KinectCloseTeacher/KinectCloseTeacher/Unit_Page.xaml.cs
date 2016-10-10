@@ -46,7 +46,8 @@ namespace KinectCloseTeacher
         string[] LNV = new string[2];
         string[] RNV = new string[2];
         string[] GetVideo = new string[4];
-        int unit = 0, action = 0, a, finish = 0;
+        int unit = 0, action = 0, finish = 0;
+        float[] res = new float[2];
         Skeleton[] skeletons;
         Menu menu = new Menu();
         SignAction sign = new SignAction();
@@ -141,56 +142,94 @@ namespace KinectCloseTeacher
             BGMusicElement.UnloadedBehavior = MediaState.Manual;
             BGMusicElement.Play();
 
-            OneElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\1.mp3");
+            OneElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\1.mp3");
             OneElement.LoadedBehavior = MediaState.Manual;
             OneElement.UnloadedBehavior = MediaState.Manual;
-            OneElement.Play();
 
-            TwoElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\2.mp3");
+            TwoElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\2.mp3");
             TwoElement.LoadedBehavior = MediaState.Manual;
             TwoElement.UnloadedBehavior = MediaState.Manual;
-            TwoElement.Play();
 
-            ThreeElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\3.mp3");
+            ThreeElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\3.mp3");
             ThreeElement.LoadedBehavior = MediaState.Manual;
             ThreeElement.UnloadedBehavior = MediaState.Manual;
-            ThreeElement.Play();
 
-            FourElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\4.mp3");
+            FourElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\4.mp3");
             FourElement.LoadedBehavior = MediaState.Manual;
             FourElement.UnloadedBehavior = MediaState.Manual;
-            FourElement.Play();
 
-            FiveElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\5.mp3");
+            FiveElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\5.mp3");
             FiveElement.LoadedBehavior = MediaState.Manual;
             FiveElement.UnloadedBehavior = MediaState.Manual;
-            FiveElement.Play();
 
-            SixElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\6.mp3");
+            SixElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\6.mp3");
             SixElement.LoadedBehavior = MediaState.Manual;
             SixElement.UnloadedBehavior = MediaState.Manual;
-            SixElement.Play();
 
-            SevenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\7.mp3");
+            SevenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\7.mp3");
             SevenElement.LoadedBehavior = MediaState.Manual;
             SevenElement.UnloadedBehavior = MediaState.Manual;
-            SevenElement.Play();
 
-            EightElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\8.mp3");
+            EightElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\8.mp3");
             EightElement.LoadedBehavior = MediaState.Manual;
             EightElement.UnloadedBehavior = MediaState.Manual;
-            EightElement.Play();
 
-            NineElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\9.mp3");
+            NineElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\9.mp3");
             NineElement.LoadedBehavior = MediaState.Manual;
             NineElement.UnloadedBehavior = MediaState.Manual;
-            NineElement.Play();
 
-            TenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\10.mp3");
+            TenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\10.mp3");
             TenElement.LoadedBehavior = MediaState.Manual;
             TenElement.UnloadedBehavior = MediaState.Manual;
-            TenElement.Play();
-            
+
+            ElevenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\11.mp3");
+            ElevenElement.LoadedBehavior = MediaState.Manual;
+            ElevenElement.UnloadedBehavior = MediaState.Manual;
+
+            TwelveElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\12.mp3");
+            TwelveElement.LoadedBehavior = MediaState.Manual;
+            TwelveElement.UnloadedBehavior = MediaState.Manual;
+
+            ThirteenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\13.mp3");
+            ThirteenElement.LoadedBehavior = MediaState.Manual;
+            ThirteenElement.UnloadedBehavior = MediaState.Manual;
+
+            FourteenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\14.mp3");
+            FourteenElement.LoadedBehavior = MediaState.Manual;
+            FourteenElement.UnloadedBehavior = MediaState.Manual;
+
+            FifteenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\15.mp3");
+            FifteenElement.LoadedBehavior = MediaState.Manual;
+            FifteenElement.UnloadedBehavior = MediaState.Manual;
+
+            SixteenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\16.mp3");
+            SixteenElement.LoadedBehavior = MediaState.Manual;
+            SixteenElement.UnloadedBehavior = MediaState.Manual;
+
+            SeventeenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\17.mp3");
+            SeventeenElement.LoadedBehavior = MediaState.Manual;
+            SeventeenElement.UnloadedBehavior = MediaState.Manual;
+
+            EighteenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\18.mp3");
+            EighteenElement.LoadedBehavior = MediaState.Manual;
+            EighteenElement.UnloadedBehavior = MediaState.Manual;
+
+            NineteenElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\19.mp3");
+            NineteenElement.LoadedBehavior = MediaState.Manual;
+            NineteenElement.UnloadedBehavior = MediaState.Manual;
+
+            CMoneElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\CM1.mp3");
+            CMoneElement.LoadedBehavior = MediaState.Manual;
+            CMoneElement.UnloadedBehavior = MediaState.Manual;
+
+            CMtwoElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\CM2.mp3");
+            CMtwoElement.LoadedBehavior = MediaState.Manual;
+            CMtwoElement.UnloadedBehavior = MediaState.Manual;
+
+            CMthreeElement.Source = new Uri(Directory.GetCurrentDirectory() + "\\Source\\Voice\\CM3.mp3");
+            CMthreeElement.LoadedBehavior = MediaState.Manual;
+            CMthreeElement.UnloadedBehavior = MediaState.Manual;
+
         }
 
         private void timer_Tick()
@@ -549,7 +588,7 @@ namespace KinectCloseTeacher
                         //判斷單元
                         if (unit == 1)
                         {
-                            a = UAC.Unit1_Check(action, leftShoulder, rightShoulder, leftElbow, rightElbow);
+                            res = UAC.Unit1_Check(action, leftShoulder, rightShoulder, leftElbow, rightElbow);
                             second = unit_1.SecondSet();
                             failSecond = unit_1.failSecondSet();
                             loadingSet();
@@ -558,7 +597,7 @@ namespace KinectCloseTeacher
                         }
                         if (unit == 2)
                         {
-                            a = UAC.Unit2_Check(action, leftShoulder, rightShoulder, leftElbow, rightElbow);
+                            res = UAC.Unit2_Check(action, leftShoulder, rightShoulder, leftElbow, rightElbow);
                             second = unit_2.SecondSet();
                             failSecond = unit_2.failSecondSet();
                             loadingSet();
@@ -607,7 +646,7 @@ namespace KinectCloseTeacher
                         this.NavigationService.Navigate(menu);
                     }
                     ResetTime();
-                    FailMessage(a);
+                    FailMessage(res);
                     label.Content = "第" + times + "次";
                     actselect.Content = action;
                     if(unit != 0)
@@ -645,8 +684,9 @@ namespace KinectCloseTeacher
         }
         
         //判斷動作播放指導聲音
-        private void FailMessage(int a)
+        private void FailMessage(float [] res)
         {
+            int TensNum = 0,DigitsNum;
             if (failSecond % 150 == 0)
             {
                 LeftPositiveElement.Stop();
@@ -654,25 +694,156 @@ namespace KinectCloseTeacher
                 LeftNegativeElement.Stop();
                 RightNegativeElement.Stop();
                 GoodElement.Stop();
-                Console.WriteLine(a);
+                OneElement.Stop();
+                TwoElement.Stop();
+                ThreeElement.Stop();
+                FourElement.Stop();
+                FiveElement.Stop();
+                SixElement.Stop();
+                SevenElement.Stop();
+                EightElement.Stop();
+                NineElement.Stop();
+                TenElement.Stop();
+                ElevenElement.Stop();
+                TwelveElement.Stop();
+                ThirteenElement.Stop();
+                FourteenElement.Stop();
+                FifteenElement.Stop();
+                SixteenElement.Stop();
+                SeventeenElement.Stop();
+                EighteenElement.Stop();
+                NineteenElement.Stop();
+                CMoneElement.Stop();
+                CMtwoElement.Stop();
+                CMthreeElement.Stop();
 
-                if (a == 1)
+
+                Console.WriteLine(res[1]);
+                if(res[1] < 0)
+                {
+                    res[1] = -res[1];
+                }
+                res[1] = Convert.ToInt32(res[1] * 83 / 0.6);
+                    Console.WriteLine("sdfonidnakfdn");
+
+                TensNum = Convert.ToInt32( res[1] / 10);
+                DigitsNum = Convert.ToInt32(res[1] % 10);
+
+                Console.WriteLine(TensNum+"/n"+DigitsNum);
+
+                if (res[0] == 1)
                 {
                     LeftPositiveElement.Play();
-                    OneElement.Play();
                 }
-                else if(a == 2)
+                else if(res[0] == 2)
                 {
                     LeftNegativeElement.Play();
                 }
-                else if (a == 3)
+                else if (res[0] == 3)
                 {
                     RightPositiveElement.Play();
                 }
-                else if (a == 4)
+                else if (res[0] == 4)
                 {
                     RightNegativeElement.Play();
                 }
+
+                //計算與標準動作差距
+                if(TensNum == 1)
+                {
+                    TenElement.Play();
+                }
+                else if(TensNum == 2 )
+                {
+                    TwoElement.Play();
+                }
+                else if(TensNum ==3)
+                {
+                    ThreeElement.Play();
+                }
+                else if (TensNum == 4)
+                {
+                    FourElement.Play();
+                }
+                else if (TensNum == 5)
+                {
+                    FiveElement.Play();
+                }
+                else if (TensNum == 6)
+                {
+                    SixElement.Play();
+                }
+                else if (TensNum == 7)
+                {
+                    SevenElement.Play();
+                }
+                else if (TensNum == 8)
+                {
+                    EightElement.Play();
+                }
+                else if (TensNum == 9)
+                {
+                    NineElement.Play();
+                }
+
+
+                if (DigitsNum == 1)
+                {
+                    ElevenElement.Play();
+                }
+                else if (DigitsNum == 2)
+                {
+                    TwelveElement.Play();
+                }
+                else if (DigitsNum == 3)
+                {
+                    ThirteenElement.Play();
+                }
+                else if (DigitsNum == 4)
+                {
+                    FourteenElement.Play();
+                }
+                else if (DigitsNum == 5)
+                {
+                    FifteenElement.Play();
+                }
+                else if (DigitsNum == 6)
+                {
+                    SixteenElement.Play();
+                }
+                else if (DigitsNum == 7)
+                {
+                    SeventeenElement.Play();
+                }
+                else if (DigitsNum == 8)
+                {
+                    EighteenElement.Play();
+                }
+                else if (DigitsNum == 9)
+                {
+                    NineteenElement.Play();
+                }
+
+
+                if(TensNum == 0)
+                {
+                    CMoneElement.Play();
+                }
+                else if(TensNum >= 1)
+                {
+                    if(DigitsNum == 0)
+                    {
+                        CMtwoElement.Play();
+                    }
+                    else
+                    {
+                        CMthreeElement.Play();
+                    }
+                    
+                }
+
+
+                
             }
         }
 
@@ -747,7 +918,8 @@ namespace KinectCloseTeacher
             second = 0;
             unit = 0;
             action = 0;
-            a = 0;
+            res[0] = 0;
+            res[1] = 0;
             finish = 0;
             VideoElement.Stop();
             GoodElement.Stop();

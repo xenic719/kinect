@@ -11,81 +11,112 @@ namespace KinectCloseTeacher
     public class Unit_Action_Check
     {
         //判別Unit1的動作
-        public int Unit1_Check(int selectAction, Joint leftShoulder, Joint rightShoulder, Joint leftElbow, Joint rightElbow)
+        public float[]  Unit1_Check(int selectAction, Joint leftShoulder, Joint rightShoulder, Joint leftElbow, Joint rightElbow)
         {
+            float [] res = new float[2];
             if(selectAction ==1)
             {
                 if(leftElbow.Position.Y + 0.05 < leftShoulder.Position.Y)
                 {
-                    Console.WriteLine("左手在高一點");
-                    return 1;
+                    res[0] = 1;
+                    res[1] = leftShoulder.Position.Y - leftElbow.Position.Y;
+                   // Console.WriteLine("左手在高一點");
+                    return res;
                 }
                 if(rightElbow.Position.Y + 0.05 < rightShoulder.Position.Y)
                 {
-                    Console.WriteLine("右手在高一點");
-                    return 3;
+                    res[0] = 3;
+                    res[1] = rightShoulder.Position.Y - rightElbow.Position.Y;
+                   // Console.WriteLine("右手在高一點");
+                    return res;
                 }
                     
                 if(leftElbow.Position.Y -0.05 > leftShoulder.Position.Y)
                 {
-                    Console.WriteLine("左手在低一點");
-                    return 2;
+                    res[0] = 2;
+                    res[1] = leftElbow.Position.Y - leftShoulder.Position.Y;
+                   // Console.WriteLine("左手在低一點");
+                    return res;
                 }
                 if(rightElbow.Position.Y - 0.05 > rightShoulder.Position.Y)
                 {
-                    Console.WriteLine("右手在低一點");
-                    return 4;
+                    res[0] = 4;
+                    res[1] =rightShoulder.Position.Y - rightElbow.Position.Y;
+                    //Console.WriteLine("右手在低一點");
+                    return res;
                 }
             }
             else if (selectAction == 2)
             {
-                if (leftElbow.Position.Z + 0.1 < leftShoulder.Position.Z)
+                if (leftElbow.Position.Z + 0.05 < leftShoulder.Position.Z)
                 {
-                    return 1;
+                    res[0] = 1;
+                    res[1] = leftShoulder.Position.Z - leftElbow.Position.Z;
+                    return res;
                 }
-                if (rightElbow.Position.Z + 0.1 < rightShoulder.Position.Z)
+                if (rightElbow.Position.Z + 0.05 < rightShoulder.Position.Z)
                 {
-                    return 3;
+                    res[0] = 3;
+                    res[1] = rightShoulder.Position.Z - rightElbow.Position.Z;
+                    return res;
                 }
 
-                if (leftElbow.Position.Z - 0.15 > leftShoulder.Position.Z)
+                if (leftElbow.Position.Z - 0.05 > leftShoulder.Position.Z)
                 {
-                    return 2;
+                    res[0] = 2;
+                    res[1] = leftElbow.Position.Z - leftShoulder.Position.Z;
+                    return res;
                 }
-                if (rightElbow.Position.Z - 0.15 > rightShoulder.Position.Z)
+                if (rightElbow.Position.Z - 0.05 > rightShoulder.Position.Z)
                 {
-                    return 4;
+                    res[0] = 4;
+                    res[1] = rightElbow.Position.Z - rightShoulder.Position.Z;
+                    return res;
                 }
-            }            
-            return 5;
+            }
+            res[0] = 5;
+            res[1] = 0; 
+            return res;
         }
 
 
-        public int Unit2_Check(int selectAction, Joint leftShoulder, Joint rightShoulder, Joint leftElbow, Joint rightElbow)
+        public float[] Unit2_Check(int selectAction, Joint leftShoulder, Joint rightShoulder, Joint leftElbow, Joint rightElbow)
         {
+            float[] res = new float[2];
             if (selectAction == 1)
             {
-                if (leftElbow.Position.Z < leftShoulder.Position.Z)
+                if (leftElbow.Position.Z + 0.05 < leftShoulder.Position.Z)
                 {
-                    return 1;
+                    res[0] = 1;
+                    res[1] = leftShoulder.Position.Z - leftElbow.Position.Z;
+                    return res;
                 }
-                else if (leftElbow.Position.Z > leftShoulder.Position.Z)
+                else if (leftElbow.Position.Z - 0.05 > leftShoulder.Position.Z)
                 {
-                    return 2;
+                    res[0] = 2;
+                    res[1] = leftElbow.Position.Z - leftShoulder.Position.Z;
+                    return res;
                 }
             }
             else if (selectAction == 2)
             {
-                if (rightElbow.Position.Z < rightShoulder.Position.Z)
+                if (rightElbow.Position.Z + 0.05 < rightShoulder.Position.Z)
                 {
-                    return 3;
+                    res[0] = 3;
+                    res[1] = rightShoulder.Position.Z - rightElbow.Position.Z;
+                    return res;
                 }
-                else if (rightElbow.Position.Z > rightShoulder.Position.Z)
+                else if (rightElbow.Position.Z - 0.05 > rightShoulder.Position.Z)
                 {
-                    return 4;
+                    res[0] = 4;
+                    res[1] = leftElbow.Position.Z - leftShoulder.Position.Z;
+                    return res;
                 }
             }
-            return 3;
+
+            res[0] = 5;
+            res[1] = 0;
+            return res;
         }
     }
 }

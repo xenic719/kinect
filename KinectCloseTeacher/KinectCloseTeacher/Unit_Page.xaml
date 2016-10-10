@@ -68,6 +68,18 @@
             <MediaElement Name="EightElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
             <MediaElement Name="NineElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
             <MediaElement Name="TenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="ElevenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="TwelveElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="ThirteenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="FourteenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="FifteenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="SixteenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="SeventeenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="EighteenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="NineteenElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="CMoneElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="CMtwoElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+            <MediaElement Name="CMthreeElement" HorizontalAlignment="Left" Height="100" Margin="457,969,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         </Grid>
     </Viewbox>
 </Page>
