@@ -20,6 +20,9 @@ using System.Threading;
 using System.Windows.Media.Animation;
 using System.Media;
 using Microsoft.Speech.Synthesis;
+using System.Net.Http;
+using System.Net;
+
 
 namespace KinectCloseTeacher
 {
@@ -56,10 +59,32 @@ namespace KinectCloseTeacher
         public Joint head, rightHand, leftHand, leftShoulder, rightShoulder, centerShoulder, rightElbow, leftFoot, rightFoot, leftHip
                    , rightHip, centerHip, leftKnee, rightKnee, leftWrist, rightWrist, spine, leftAnkle, rightAnkle, leftElbow, aa, bb;
 
+        int actionunit;
+        int actionname;
+        int actiontime;
+        int wrongnumber=0 ;
+        float differece;
+
+
+
         //用if區分
         public Unit_1 unit_1;
         public Unit_2 unit_2;
         public Unit_3 unit_3;
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            /*string address = "http://www.google.com/";
+            //string address = "http://www.google.com/s?"+"ActionUnit="+ "&ActionName="+ "&ActionTime="+ "&WrongNumber="+"&Diffierence=";
+            HttpWebRequest response = (HttpWebRequest)WebRequest.Create(address);
+            response.Method = "GET";
+            using (WebResponse wr = response.GetResponse())
+            {
+                //在這裡對接收到的頁面內容進行處理
+                //Console.Write((int)response.StatusCode);
+            }
+            */
+        }
+
         public Unit_4 unit_4;
         public WarmUp WU;
         
@@ -85,7 +110,8 @@ namespace KinectCloseTeacher
 
         public Unit_Page(int selectUnit,int selectAction)
         {
-            if( selectUnit == 1)
+            
+            if ( selectUnit == 1)
             {
                 unit_1 = new Unit_1();
             }
@@ -254,6 +280,7 @@ namespace KinectCloseTeacher
             }
         }
 
+
         //當Unit改變時，修改聲音路徑
         private void changeVoice()
         {
@@ -415,8 +442,9 @@ namespace KinectCloseTeacher
                 case "XIAO SHENG":
                     VideoElement.Volume += -1;
                     break;
-                case "TIME OUT":
-
+                case "TIMEOUT":
+                    unit = 7;
+                    MessageBox.Show("暫停");
                     break;
             }
         }
@@ -556,6 +584,7 @@ namespace KinectCloseTeacher
                     //設定頁面標籤內容
                     TimesLabel.Content = times;
                     AllTimesLabel.Content = "5";
+
                     
                     //當完成次數為5，改變動作與聲音
                     if (times == 5)
@@ -585,6 +614,8 @@ namespace KinectCloseTeacher
                     }
                     else if(finish == 0)
                     {
+                        actionunit = unit;
+                        actionname = action;
                         //判斷單元
                         if (unit == 1)
                         {
@@ -615,6 +646,7 @@ namespace KinectCloseTeacher
                         }
                         if (unit == 4)
                         {
+                            wrongnumber = unit_4.failSecondSet();
                             failSecond = unit_4.failSecondSet();
                             loadingSet();
                             preTime = times;
@@ -724,27 +756,29 @@ namespace KinectCloseTeacher
                     res[1] = -res[1];
                 }
                 res[1] = Convert.ToInt32(res[1] * 83 / 0.6);
-                    Console.WriteLine("sdfonidnakfdn");
-
                 TensNum = Convert.ToInt32( res[1] / 10);
                 DigitsNum = Convert.ToInt32(res[1] % 10);
-
+                differece = res[1];
                 Console.WriteLine(TensNum+"/n"+DigitsNum);
 
                 if (res[0] == 1)
                 {
+                    wrongnumber++;
                     LeftPositiveElement.Play();
                 }
                 else if(res[0] == 2)
                 {
+                    wrongnumber++;
                     LeftNegativeElement.Play();
                 }
                 else if (res[0] == 3)
                 {
+                    wrongnumber++;
                     RightPositiveElement.Play();
                 }
                 else if (res[0] == 4)
                 {
+                    wrongnumber++;
                     RightNegativeElement.Play();
                 }
 
@@ -845,6 +879,22 @@ namespace KinectCloseTeacher
 
                 
             }
+        }
+
+        //傳值到網頁
+        private void HttpGet()
+        {
+
+            /*string address = "http://www.google.com/";
+            //string address = "http://www.google.com/s?"+"ActionUnit="+ "&ActionName="+ "&ActionTime="+ "&WrongNumber="+"&Diffierence=";
+            HttpWebRequest response = (HttpWebRequest)WebRequest.Create(address);
+            response.Method = "GET";
+            using (WebResponse wr = response.GetResponse())
+            {
+                //在這裡對接收到的頁面內容進行處理
+                //Console.Write((int)response.StatusCode);
+            }
+            */
         }
 
         //載入flag
