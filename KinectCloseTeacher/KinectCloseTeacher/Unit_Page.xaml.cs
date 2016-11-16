@@ -62,8 +62,9 @@ namespace KinectCloseTeacher
         int actionunit;
         int actionname;
         int actiontime;
-        int wrongnumber=0 ;
-        float differece;
+        int wrongnumber = 0 ;
+        float differece = 0;
+        float totaldifferece = 0;
 
 
 
@@ -758,7 +759,7 @@ namespace KinectCloseTeacher
                 res[1] = Convert.ToInt32(res[1] * 83 / 0.6);
                 TensNum = Convert.ToInt32( res[1] / 10);
                 DigitsNum = Convert.ToInt32(res[1] % 10);
-                differece = res[1];
+                totaldifferece += res[1];
                 Console.WriteLine(TensNum+"/n"+DigitsNum);
 
                 if (res[0] == 1)
@@ -884,17 +885,24 @@ namespace KinectCloseTeacher
         //傳值到網頁
         private void HttpGet()
         {
-
-            /*string address = "http://www.google.com/";
-            //string address = "http://www.google.com/s?"+"ActionUnit="+ "&ActionName="+ "&ActionTime="+ "&WrongNumber="+"&Diffierence=";
+            /*
+            string address = "http://www.google.com/s?"+"ActionUnit=" + actionunit + "&ActionName=" + actionname +  "&ActionTime=" + actiontime + 
+            "&WrongNumber=" + wrongnumber + "&Diffierence="+ totaldifferece/wrongnumber;
             HttpWebRequest response = (HttpWebRequest)WebRequest.Create(address);
             response.Method = "GET";
+
             using (WebResponse wr = response.GetResponse())
             {
                 //在這裡對接收到的頁面內容進行處理
                 //Console.Write((int)response.StatusCode);
             }
-            */
+            actionunit = 0;
+            actionname = 0;
+            actiontime = 0;
+            wrongnumber = 0 ;
+            differece = 0;
+            totaldifferece = 0;
+         */
         }
 
         //載入flag
