@@ -31,6 +31,7 @@ namespace KinectCloseTeacher
             }
             return false;
         }
+
         public int SecondSet()
         {
             return second;

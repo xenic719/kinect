@@ -23,7 +23,6 @@ using Microsoft.Speech.Synthesis;
 using System.Net.Http;
 using System.Net;
 
-
 namespace KinectCloseTeacher
 {
     /// <summary>
@@ -31,8 +30,12 @@ namespace KinectCloseTeacher
     /// </summary>
     public partial class Unit_Page : Page
     {
+
+
         DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(0.1) };
         int sec = 100,failSecond;
+
+        System.DateTime currentTime = new System.DateTime();
 
         KinectSensor sensor = (from sensorToCheck in KinectSensor.KinectSensors
                                where sensorToCheck.Status == KinectStatus.Connected
@@ -61,10 +64,12 @@ namespace KinectCloseTeacher
 
         int actionunit;
         int actionname;
-        int actiontime;
+        int actiontime = 0;
         int wrongnumber = 0 ;
         float differece = 0;
         float totaldifferece = 0;
+
+        public int beforehour, afterhour,beforemin,aftermin,beforesec,aftersec;
 
 
 
@@ -74,16 +79,7 @@ namespace KinectCloseTeacher
         public Unit_3 unit_3;
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            /*string address = "http://www.google.com/";
-            //string address = "http://www.google.com/s?"+"ActionUnit="+ "&ActionName="+ "&ActionTime="+ "&WrongNumber="+"&Diffierence=";
-            HttpWebRequest response = (HttpWebRequest)WebRequest.Create(address);
-            response.Method = "GET";
-            using (WebResponse wr = response.GetResponse())
-            {
-                //在這裡對接收到的頁面內容進行處理
-                //Console.Write((int)response.StatusCode);
-            }
-            */
+
         }
 
         public Unit_4 unit_4;
@@ -271,6 +267,7 @@ namespace KinectCloseTeacher
                 {
                     GoodElement.Stop();
                     GoodElement.Play();
+                    failSecond = 1;
                 }
                 sec--;
                 A.Value = sec;  //timerText是介面上的一個TextBlock
@@ -582,21 +579,45 @@ namespace KinectCloseTeacher
                     SetEllipsePosition(ellipseCenterHip,  centerHip, false);
                     SetEllipsePosition(ellipseSpine,  spine, false);
 
+
+
+                    actiontime++;
+
                     //設定頁面標籤內容
                     TimesLabel.Content = times;
                     AllTimesLabel.Content = "5";
 
-                    
+                    if (times == 0)
+                    {
+                        beforehour = Convert.ToInt32(DateTime.Now.ToString("hh"));
+                        beforemin = Convert.ToInt32(DateTime.Now.ToString("mm"));
+                        beforesec = Convert.ToInt32(DateTime.Now.ToString("ss"));
+                    }
+
                     //當完成次數為5，改變動作與聲音
                     if (times == 5)
                     {
                         action++;
+                        afterhour = Convert.ToInt32(DateTime.Now.ToString("hh"));
+                        aftermin = Convert.ToInt32(DateTime.Now.ToString("mm"));
+                        aftersec = Convert.ToInt32(DateTime.Now.ToString("ss"));
+                        actiontime = (afterhour-beforehour)*60*60+(aftermin-beforemin)*60+(aftersec - beforesec);
+
+                        HttpGet();
+                        actiontime = 0;
+                        wrongnumber = 0;
+                        differece = 0;
+                        totaldifferece = 0;
+
                         if (action<=2)
                         {
                             changeVoice();
                         }
                         times = 0;
                     }
+
+
+                    
 
                     //判別單元
                     if (finish == 1)
@@ -885,9 +906,17 @@ namespace KinectCloseTeacher
         //傳值到網頁
         private void HttpGet()
         {
-            /*
-            string address = "http://www.google.com/s?"+"ActionUnit=" + actionunit + "&ActionName=" + actionname +  "&ActionTime=" + actiontime + 
-            "&WrongNumber=" + wrongnumber + "&Diffierence="+ totaldifferece/wrongnumber;
+            if(wrongnumber == 0)
+            {
+                differece = 0;
+            }
+            else
+            {
+                differece = totaldifferece / wrongnumber;
+            }
+
+            string address = "http://34.193.127.156/html/insert.php?"+"ActionUnit=" + actionunit + "&ActionName=" + actionname +  "&ActionTime=" + actiontime + 
+            "&WrongNumber=" + wrongnumber + "&Diffierence="+ differece;
             HttpWebRequest response = (HttpWebRequest)WebRequest.Create(address);
             response.Method = "GET";
 
@@ -902,7 +931,7 @@ namespace KinectCloseTeacher
             wrongnumber = 0 ;
             differece = 0;
             totaldifferece = 0;
-         */
+         
         }
 
         //載入flag
